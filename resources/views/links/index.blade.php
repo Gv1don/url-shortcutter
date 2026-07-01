@@ -1,14 +1,4 @@
-@auth
-    @php
-        $layout = 'layouts.app';
-    @endphp
-@else
-    @php
-        $layout = 'layouts.guest';
-    @endphp
-@endauth
-
-<x-{{ $layout }}>
+<x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('My Short Links') }}
@@ -89,4 +79,4 @@
             </div>
         </div>
     </div>
-</x-{{ $layout }}>
+</x-app-layout>
