@@ -29,9 +29,9 @@ RUN composer install --no-interaction --optimize-autoloader --no-scripts && \
 
 COPY --chown=www:www . /var/www/html
 
-RUN npm run build && \
-    php artisan optimize:clear && \
-    php artisan package:discover --ansi && \
+RUN CACHE_STORE=array SESSION_DRIVER=array npm run build && \
+    CACHE_STORE=array SESSION_DRIVER=array php artisan optimize:clear && \
+    CACHE_STORE=array SESSION_DRIVER=array php artisan package:discover --ansi && \
     chown -R www:www storage bootstrap/cache
 
 USER www

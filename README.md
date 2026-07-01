@@ -23,17 +23,37 @@
 ## Быстрый запуск
 
 ```bash
-# Сборка и запуск контейнеров
+# 1. Скопировать .env
+cp .env.example .env
+
+# 2. Сборка и запуск контейнеров
 docker compose up -d --build
 
-# Миграции и сидеры
+# 3. Генерация ключа приложения
+docker compose exec app php artisan key:generate
+
+# 4. Миграции + сидеры (демо-данные)
 docker compose exec app php artisan migrate --seed
 
-# Запуск тестов
+# 5. Открыть в браузере
+#    http://localhost:8080
+```
+
+**Тесты:**
+```bash
 docker compose exec app php artisan test
 ```
 
-Зависимости (`vendor`, `node_modules`) и собранные ассеты (`public/build`) вшиты в образ. Для обновления — `docker compose build --no-cache app`.
+**Если меняются зависимости (`composer.json` / `package.json`):**
+```bash
+docker compose build --no-cache app
+docker compose up -d
+```
+
+**Если меняется `.env`:**
+```bash
+docker compose exec app php artisan key:generate
+```
 
 После запуска:
 
@@ -41,7 +61,6 @@ docker compose exec app php artisan test
 |----------------------|-----------------------------|
 | Сайт                 | http://localhost:8080       |
 | Админ-панель         | http://localhost:8080/admin |
-| PHPMyAdmin (бонус)   | http://localhost:8081       |
 
 **Учётные данные (сидеры):**
 
