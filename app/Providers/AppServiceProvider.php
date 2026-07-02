@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 
@@ -14,13 +15,15 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        if (isset($_SERVER['HTTP_HOST'])) {
-            $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
-            URL::forceRootUrl($scheme . '://' . $_SERVER['HTTP_HOST']);
+        $this->app->booted(function () {
+            /** @var Request $request */
+            $request = $this->app->make(Request::class);
 
-            if ($scheme === 'https') {
+            URL::forceRootUrl($request->getSchemeAndHttpHost());
+
+            if ($request->isSecure()) {
                 URL::forceScheme('https');
             }
-        }
+        });
     }
 }
