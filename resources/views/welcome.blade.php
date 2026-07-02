@@ -14,9 +14,14 @@
             <script src="https://cdn.tailwindcss.com"></script>
         @endif
     </head>
+    @php
+        $displayDomain = config('app.url') && !str_contains(config('app.url'), 'localhost')
+            ? rtrim(config('app.url'), '/')
+            : 'https://shortcutter.test';
+    @endphp
     <body class="font-sans antialiased bg-gradient-to-br from-indigo-50 via-white to-purple-50">
         <div class="min-h-screen flex flex-col">
-            <nav class="flex items-center justify-between px-6 py-4 max-w-6xl mx-auto w-full">
+            <nav class="flex items-center justify-between px-6 py-4 w-full lg:w-[90%] xl:w-4/5 mx-auto">
                 <div class="flex items-center gap-3">
                     <div class="w-9 h-9 bg-indigo-600 rounded-lg flex items-center justify-center">
                         <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -43,7 +48,7 @@
             </nav>
 
             <main class="flex-1 flex items-center">
-                <div class="max-w-4xl mx-auto px-6 py-16 w-full">
+                <div class="w-4/5 mx-auto px-6 py-16">
                     <div class="text-center">
                         <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight tracking-tight">
                             Shorten links.<br>
@@ -75,7 +80,7 @@
                         </div>
                     </div>
 
-                    <div class="mt-16 max-w-lg mx-auto">
+                    <div class="mt-16 w-full mx-auto">
                         <div class="bg-white rounded-2xl p-8 border border-gray-100">
                             <div class="flex items-center gap-3 mb-6">
                                 <div class="w-3 h-3 rounded-full bg-red-400"></div>
@@ -93,7 +98,7 @@
                                 </div>
                                 <div class="flex items-center gap-3">
                                     <div class="flex-1 bg-indigo-50 border border-indigo-100 rounded-lg px-4 py-3 text-sm text-indigo-700 font-mono font-medium truncate">
-                                        {{ request()->getSchemeAndHttpHost() }}/aB3xK9
+                                        {{ $displayDomain }}/aB3xK9
                                     </div>
                                     <button class="p-2 text-gray-400 hover:text-indigo-600 transition" title="Copy">
                                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -109,7 +114,7 @@
                         </div>
                     </div>
 
-                    <div class="mt-16 grid grid-cols-3 gap-8 max-w-sm mx-auto">
+                    <div class="mt-16 grid grid-cols-3 gap-8 w-full mx-auto">
                         <div class="text-center">
                             <div class="text-2xl font-bold text-gray-900" id="stat-links">0</div>
                             <div class="text-sm text-gray-500">Links created</div>
