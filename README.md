@@ -62,11 +62,12 @@ docker compose exec app php artisan key:generate
 | Сайт                 | http://localhost:8080       |
 | Админ-панель         | http://localhost:8080/admin |
 
+> Админ-панель Filament доступна **любому авторизованному пользователю** (отдельной админ-роли не требуется).
+
 **Учётные данные (сидеры):**
 
 | Роль   | Email                     | Пароль    |
 |--------|---------------------------|-----------|
-| Админ  | admin@shortcutter.test    | password  |
 | Пользователь | demo@shortcutter.test | password  |
 
 ## Эндпоинты
