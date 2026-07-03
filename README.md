@@ -2,23 +2,39 @@
 
 Сервис для сокращения ссылок с отслеживанием переходов и административной панелью.
 
-![](./screenshots/main.png)
+---
 
-![](./screenshots/link_example.png)
+<figure>
+  <img src="./screenshots/main.png" alt="Главный экран">
+</figure>
 
-*Интерфейс создания сокращённой ссылки. Рандомизированный домен Github Codespace достаточно длинный, поэтому визуально ссылка длинная.*
+---
 
-![](./screenshots/link_example_stats.png)
+<figure>
+  <img src="./screenshots/link_example.png" alt="Интерфейс создания сокращённой ссылки">
+  <figcaption>Интерфейс создания сокращённой ссылки. Рандомизированный домен Github Codespace достаточно длинный, поэтому визуально ссылка длинная.</figcaption>
+</figure>
 
-*Интерфейс просмотра переходов по ссылке.*
+---
 
-![](./screenshots/admin_links.png)
+<figure>
+  <img src="./screenshots/link_example_stats.png" alt="Интерфейс просмотра переходов по ссылке">
+  <figcaption>Интерфейс просмотра переходов по ссылке.</figcaption>
+</figure>
 
-*Интерфейс администрирования всех созданных ссылок.*
+---
 
-![](./screenshots/admin_clicks.png)
+<figure>
+  <img src="./screenshots/admin_links.png" alt="Интерфейс администрирования всех созданных ссылок">
+  <figcaption>Интерфейс администрирования всех созданных ссылок.</figcaption>
+</figure>
 
-*Интерфейс просмотра всех кликов по всем ссылкам, часть интерфейса админской панели.*
+---
+
+<figure>
+  <img src="./screenshots/admin_clicks.png" alt="Интерфейс просмотра кликов">
+  <figcaption>Интерфейс просмотра всех кликов по всем ссылкам, часть интерфейса админской панели.</figcaption>
+</figure>
 
 ## Возможности
 
